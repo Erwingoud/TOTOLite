@@ -23,4 +23,18 @@ public class DateService
         DateTime firstDayOfWeek = jan1.AddDays((weekNumber - 1) * 7 - (int)jan1.DayOfWeek + (int)DayOfWeek.Monday);
         return firstDayOfWeek;
     }
+
+    public List<DateTime> GetFutureWeekDays(int year, int weekNumber)
+    {
+        DateTime startDate = FirstDateOfWeek(year, weekNumber);
+        List<DateTime> futureWeekDays = new List<DateTime>();
+
+        for (int i = 0; i < 7; i++)
+        {
+            futureWeekDays.Add(startDate);
+            startDate = startDate.AddDays(1);
+        }
+
+        return futureWeekDays;
+    }
 }

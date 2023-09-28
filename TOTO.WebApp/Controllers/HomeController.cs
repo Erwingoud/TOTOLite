@@ -52,5 +52,26 @@ namespace TOTO.WebApp.Controllers
         {
             return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
         }
+
+        public IActionResult ShowFutureWeek(int? year, int? weekNumber)
+        {
+            if (!year.HasValue || !weekNumber.HasValue)
+            {
+                // Default to current year and week if not provided
+                year = DateTime.Now.Year;
+                weekNumber = GetIso8601WeekOfYear(DateTime.Now);
+            }
+
+            ViewBag.Year = year;
+            ViewBag.WeekNumber = weekNumber;
+
+            // Calculate future dates for the specified week
+            List<DateTime> futureWeekDays = _dateService.GetFutureWeekDays(year.Value, weekNumber.Value);
+
+            // Pass the year, week number, and future dates as a tuple to the view
+            var model = new Tuple<int, int, List<DateTime>>(year.Value, weekNumber.Value, futureWeekDays);
+
+            return View(model);
+        }
     }
 }
