@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TOTO.WebApp.Models;
 
 namespace TOTO.WebApp
 {
@@ -30,8 +31,7 @@ namespace TOTO.WebApp
             )
         );
             services.AddTransient<DateService>();
-            //services.AddScoped<TOTO.Data.IGerechtRepository, SuperSushi.Data.GerechtRepositorySql>();
-            //services.AddScoped<TOTO.Data.IMenuRepository, SuperSushi.Data.MenuRepositorySql>();
+            services.AddTransient<HolidayService>();
 
             services.AddControllersWithViews();
 

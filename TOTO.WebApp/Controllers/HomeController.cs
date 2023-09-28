@@ -9,11 +9,13 @@ namespace TOTO.WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DateService _dateService;
-        public HomeController(ILogger<HomeController> logger, DateService dateService)
+        private readonly HolidayService _holidayService;
+        public HomeController(ILogger<HomeController> logger, DateService dateService, HolidayService holidayService)
         {
             _dateService = dateService;
             _logger = logger;
-            _dateService = dateService;
+            _dateService = dateService;                                                                   
+            _holidayService = holidayService;
         }
 
         public IActionResult Index()
@@ -68,8 +70,17 @@ namespace TOTO.WebApp.Controllers
             // Calculate future dates for the specified week
             List<DateTime> futureWeekDays = _dateService.GetFutureWeekDays(year.Value, weekNumber.Value);
 
-            // Pass the year, week number, and future dates as a tuple to the view
-            var model = new Tuple<int, int, List<DateTime>>(year.Value, weekNumber.Value, futureWeekDays);
+            // Create a dictionary to store weekday-holiday mappings
+            var weekdayHolidayMap = new Dictionary<DateTime, bool>();
+
+            foreach (DateTime futureWeekDay in futureWeekDays)
+            {
+                bool isHoliday = _holidayService.IsHoliday(futureWeekDay);
+                weekdayHolidayMap[futureWeekDay] = isHoliday;
+            }
+
+            // Create a tuple containing year, week number, and the weekday-holiday map
+            var model = new Tuple<int, int, Dictionary<DateTime, bool>>(year.Value, weekNumber.Value, weekdayHolidayMap);
 
             return View(model);
         }

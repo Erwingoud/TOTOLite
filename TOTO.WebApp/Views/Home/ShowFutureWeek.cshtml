@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "FutureDays";
 }
-@model Tuple<int, int, List<DateTime>>
+@model Tuple<int, int, Dictionary<DateTime, bool>>
 
 <h1>Future Week Dates</h1>
 
@@ -17,13 +17,19 @@
     <thead>
         <tr>
             <th class="border border-collapse border-gray-300 px-4 py-2">Date</th>
+            <th class="border border-collapse border-gray-300 px-4 py-2">Holiday</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var date in Model.Item3)
+        @foreach (var entry in Model.Item3)
         {
+            var date = entry.Key;
+            var isHoliday = entry.Value;
+            string highlightClass = isHoliday ? "bg-red-200" : "";
+
             <tr>
-                <td class="border border-collapse border-gray-300 px-4 py-2">@date.ToString("yyyy-MM-dd")</td>
+                <td class="border border-collapse border-gray-300 px-4 py-2 @highlightClass">@date.ToString("yyyy-MM-dd")</td>
+                <td class="border border-collapse border-gray-300 px-4 py-2">@isHoliday</td>
             </tr>
         }
     </tbody>
