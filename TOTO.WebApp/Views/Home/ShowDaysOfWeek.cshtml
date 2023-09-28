@@ -6,27 +6,25 @@
 
 <h1>Days of the Week</h1>
 
-<form method="get">
-    <label for="year">Year:</label>
-    <input type="text" id="year" name="year" value="@ViewBag.Year" />
-    <br />
-    <label for="weekNumber">Week Number:</label>
-    <input type="text" id="weekNumber" name="weekNumber" value="@ViewBag.WeekNumber" />
-    <br />
-    <input type="submit" value="Show Days" />
+<form method="get" class="flex flex-col">
+    <label for="year" class="mb-2">Year:</label>
+    <input type="text" id="year" name="year" value="@ViewBag.Year" class="border border-gray-300 rounded-md p-2" />
+    <label for="weekNumber" class="mb-2">Week Number:</label>
+    <input type="text" id="weekNumber" name="weekNumber" value="@ViewBag.WeekNumber" class="border border-gray-300 rounded-md p-2" />
+    <input type="submit" value="Show Days" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-4" />
 </form>
 
-<table>
+<table class="table-auto border border-collapse mt-4">
     <thead>
         <tr>
-            <th>Date</th>
+            <th class="border border-collapse border-gray-300 px-4 py-2">Date</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var date in Model)
         {
             <tr>
-                <td>@date.ToString("yyyy-MM-dd")</td>
+                <td class="border border-collapse border-gray-300 px-4 py-2">@date.ToString("yyyy-MM-dd")</td>
             </tr>
         }
     </tbody>
