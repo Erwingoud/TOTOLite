@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Tailwindcss - generated CSS file
-/wwwroot/css/styles.css
+/TOTO.WebApp/wwwroot/css/styles.css
