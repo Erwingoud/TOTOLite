@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Dates";
+}
+@model List<DateTime>
+
+<h1>Days of the Week</h1>
+
+<form method="get">
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year" value="@ViewBag.Year" />
+    <br />
+    <label for="weekNumber">Week Number:</label>
+    <input type="text" id="weekNumber" name="weekNumber" value="@ViewBag.WeekNumber" />
+    <br />
+    <input type="submit" value="Show Days" />
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var date in Model)
+        {
+            <tr>
+                <td>@date.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>

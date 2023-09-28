@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOTO.WebApp", "TOTO.WebApp\TOTO.WebApp.csproj", "{66409089-3D43-4D0E-974B-67EDF31C7E61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOTO.Data", "TOTO.Data\TOTO.Data.csproj", "{FDED9F80-E41C-41E4-AA55-0E3C90D78F6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66409089-3D43-4D0E-974B-67EDF31C7E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66409089-3D43-4D0E-974B-67EDF31C7E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66409089-3D43-4D0E-974B-67EDF31C7E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66409089-3D43-4D0E-974B-67EDF31C7E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDED9F80-E41C-41E4-AA55-0E3C90D78F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDED9F80-E41C-41E4-AA55-0E3C90D78F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDED9F80-E41C-41E4-AA55-0E3C90D78F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDED9F80-E41C-41E4-AA55-0E3C90D78F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {304CE8B1-1678-46DD-ABE3-A4F607C25A90}
+	EndGlobalSection
+EndGlobal
